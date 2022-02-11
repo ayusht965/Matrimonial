@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'otp.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  _RegisterState createState() => _RegisterState();
+  _LoginState createState() => _LoginState();
 }
 
-class _RegisterState extends State<Register> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,7 @@ class _RegisterState extends State<Register> {
                 height: 24,
               ),
               Text(
-                'Registration',
+                'Login',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class _RegisterState extends State<Register> {
                         prefix: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8),
                           child: Text(
-                            '(+62)',
+                            '(+91)',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -114,11 +114,7 @@ class _RegisterState extends State<Register> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Otp()),
-                          );
-                        },
+                        onPressed: login,
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
@@ -146,6 +142,15 @@ class _RegisterState extends State<Register> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void login() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Otp(),
       ),
     );
   }
